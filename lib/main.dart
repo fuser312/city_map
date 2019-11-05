@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() => runApp(MyApp());
@@ -24,7 +25,7 @@ class GoogleMaps extends StatefulWidget {
 }
 
 class _GoogleMapsState extends State<GoogleMaps> {
-  int index = 0;
+  int indexCity = 0;
   GoogleMapController mapController;
   String currentCity = 'Bangalore';
   List cities = [
@@ -82,24 +83,33 @@ class _GoogleMapsState extends State<GoogleMaps> {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 3,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      child: FlatButton(
-                        child: Text(cities[index][0], style: TextStyle(fontSize: 24),),
-                        onPressed: () {
-                          index++;
-                          myController.animateCamera(
-                            CameraUpdate.newCameraPosition(
-                              CameraPosition(
-                                target: cities[index][1],
-                                zoom: 14.0,
-                              ),
-                            ),
+                      child: ListView.builder(
+                        itemCount: 6,
+                        itemBuilder: (context, index) {
+                          return RaisedButton(
+                            elevation: 4,
+                            child: ListTile(
+                                title: Text(
+                                  cities[index][0], style: TextStyle(
+                                    fontSize: 24,),textAlign: TextAlign.center,)),
+                            onPressed: () {
+                              myController.animateCamera(
+                                CameraUpdate.newCameraPosition(
+                                  CameraPosition(
+                                    target: cities[index][1],
+                                    zoom: 14.0,
+                                  ),
+                                ),
+                              );
+                              currentCityLocation(1);
+                            },
                           );
-                          currentCityLocation(1);
-                        },
+
+                        }
                       ),
                   ),
             ),
