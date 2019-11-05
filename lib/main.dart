@@ -43,10 +43,10 @@ class _GoogleMapsState extends State<GoogleMaps> {
     myController = controller;
   }
 
-  //LatLng _lastMapPosition = _center;
+
 
   void _onCameraMove(CameraPosition position) {
-  //  _lastMapPosition = position.target;
+  
   }
 
   void _onAddMarkerButtonPressed() {
@@ -87,7 +87,7 @@ class _GoogleMapsState extends State<GoogleMaps> {
               padding: const EdgeInsets.all(8.0),
                     child: Container(
                       child: FlatButton(
-                        child: Text(cities[index][0]),
+                        child: Text(cities[index][0], style: TextStyle(fontSize: 24),),
                         onPressed: () {
                           index++;
                           myController.animateCamera(
