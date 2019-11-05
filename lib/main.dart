@@ -29,8 +29,8 @@ class _GoogleMapsState extends State<GoogleMaps> {
   String currentCity = 'Bangalore';
   List cities = [
     ['Bengaluru', LatLng(12.9716, 77.5946)],
-    ['Mumbai', LatLng(19.0760, 72.8777)],
     ['Delhi', LatLng(28.7041, 77.1025)],
+    ['Mumbai', LatLng(19.0760, 72.8777)],
     ['Chennai', LatLng(13.0827, 80.2707)],
     ['Kolkata', LatLng(22.5726, 88.3639)],
     ['Jaipur', LatLng(26.9124, 75.7873)]
@@ -46,7 +46,7 @@ class _GoogleMapsState extends State<GoogleMaps> {
 
 
   void _onCameraMove(CameraPosition position) {
-  
+
   }
 
   void _onAddMarkerButtonPressed() {
@@ -119,4 +119,6 @@ class _GoogleMapsState extends State<GoogleMaps> {
     }
     index++;
   }
+
+
 }
